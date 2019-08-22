@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
 
-const siteUrl = "https://remoteok.io/";
+const siteUrl = "https://davesgarden.com/guides/pf/go/55346/";
 
 let siteName = "";
 const categories = new Set();
@@ -17,9 +17,9 @@ const fetchData = async () => {
 const getResults = async () => {
   const $ = await fetchData();
 
-  siteName = $('.top > .action-post-job').text();
+  siteName = $('.site-container > .row > .main > .plants-files').text();
 
-  $(".tags .tag").each((index, element) => {
+  $(".site-container > .row > .main > .plants-files > .plantfiles-gallery > .plantfiles-gallery-image > a > img").each((index, element) => {
     tags.add($(element).text());
   });
   $(".location").each((index, element) => {
